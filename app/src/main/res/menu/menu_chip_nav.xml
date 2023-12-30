@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/itHiragana"
+        android:title="Hiragana"
+        android:icon="@drawable/letter_japanese_a_svgrepo_com"
+        app:cnb_backgroundColor="#FF9800"
+        app:cnb_iconColor="@color/white"
+        app:cnb_textColor="@color/white"/>
+
+    <item
+        android:id="@+id/itVocabulary"
+        android:title="Vocabulary"
+        android:icon="@drawable/books_svgrepo_com"
+        app:cnb_backgroundColor="#FF9800"
+        app:cnb_iconColor="@color/white"
+        app:cnb_textColor="@color/white"/>
+
+    <item
+        android:id="@+id/itLesson"
+        android:title="Lesson"
+        android:icon="@drawable/lesson_svgrepo_com"
+        app:cnb_backgroundColor="#FF9800"
+        app:cnb_iconColor="@color/white"
+        app:cnb_textColor="@color/white"/>
+
+    <item
+        android:id="@+id/itKanji"
+        android:title="Kanji"
+        android:icon="@drawable/kanji_character_svgrepo_com"
+        app:cnb_backgroundColor="#FF9800"
+        app:cnb_iconColor="@color/white"
+        app:cnb_textColor="@color/white"/>
+
+    <item
+        android:id="@+id/itPerson"
+        android:title="Profile"
+        android:icon="@drawable/person_male_svgrepo_com"
+        app:cnb_backgroundColor="#FF9800"
+        app:cnb_iconColor="@color/white"
+        app:cnb_textColor="@color/white"/>
+</menu>
