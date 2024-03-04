@@ -1,4 +1,4 @@
-package com.project.elearning.Adapters;
+package com.project.elearning.adapters;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,16 +8,16 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.project.elearning.Domains.Alphabet;
+import com.project.elearning.domains.Alphabet;
 import com.project.elearning.R;
 
 import java.util.List;
 
 public class AlphabetAdapter extends RecyclerView.Adapter<AlphabetAdapter.ViewHolder> {
 
-    List<Alphabet> list;
+    List<String> list;
 
-    public AlphabetAdapter(List<Alphabet> list) {
+    public AlphabetAdapter(List<String> list) {
         this.list = list;
     }
 
@@ -33,10 +33,7 @@ public class AlphabetAdapter extends RecyclerView.Adapter<AlphabetAdapter.ViewHo
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-
-        holder.number.setText(list.get(position).getSetNumber() + "");
-        holder.setAlphabet.setText(list.get(position).getSetAlphabet());
-
+        holder.setAlphabet.setText(list.get(position));
     }
 
     @Override
@@ -45,12 +42,10 @@ public class AlphabetAdapter extends RecyclerView.Adapter<AlphabetAdapter.ViewHo
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
-        TextView number;
         TextView setAlphabet;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            number = itemView.findViewById(R.id.setNumber);
             setAlphabet = itemView.findViewById(R.id.setAlphabet);
         }
     }

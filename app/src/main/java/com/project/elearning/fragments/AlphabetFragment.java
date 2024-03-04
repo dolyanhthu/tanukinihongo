@@ -1,4 +1,4 @@
-package com.project.elearning.Fragments;
+package com.project.elearning.fragments;
 
 import android.os.Bundle;
 
@@ -10,7 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.google.android.material.tabs.TabLayout;
-import com.project.elearning.Adapters.FragmentAdapter;
+import com.project.elearning.adapters.FragmentAdapter;
 import com.project.elearning.R;
 
 public class AlphabetFragment extends Fragment {

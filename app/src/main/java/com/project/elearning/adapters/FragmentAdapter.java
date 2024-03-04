@@ -1,4 +1,4 @@
-package com.project.elearning.Adapters;
+package com.project.elearning.adapters;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;

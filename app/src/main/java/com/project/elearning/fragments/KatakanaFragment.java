@@ -1,4 +1,4 @@
-package com.project.elearning.Fragments;
+package com.project.elearning.fragments;
 
 import android.os.Bundle;
 

@@ -1,4 +1,4 @@
-package com.project.elearning.Fragments;
+package com.project.elearning.fragments;
 
 import android.os.Bundle;
 
@@ -10,8 +10,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.project.elearning.Adapters.LessonAdapter;
-import com.project.elearning.Domains.Lesson;
+import com.project.elearning.adapters.LessonAdapter;
+import com.project.elearning.domains.Lesson;
 import com.project.elearning.R;
 
 import java.util.ArrayList;

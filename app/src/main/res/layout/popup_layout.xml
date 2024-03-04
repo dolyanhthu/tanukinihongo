@@ -1,38 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.LoadingActivity"
-    android:background="@color/yellow">
+    android:background="#80000000"
+    android:id="@+id/popupLayout">
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
+        android:background="@drawable/popup_background"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        android:orientation="vertical"
+        android:padding="8dp">
 
         <pl.droidsonroids.gif.GifImageView
             android:id="@+id/gifImageView"
-            android:layout_width="120dp"
-            android:layout_height="120dp"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_marginBottom="8dp"
+             />
+        <ImageView
+            android:id="@+id/sound"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
             android:layout_gravity="center"
-            android:src="@drawable/tanuki_logo" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/mochiy_pop_one_regular"
-            android:gravity="center"
-            android:textColor="@color/white"
-            android:text="TANUKI 日本語"
-            android:textSize="42dp" />
+            android:src="@drawable/baseline_volume_up_24"/>
     </LinearLayout>
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

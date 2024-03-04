@@ -1,4 +1,4 @@
-package com.project.elearning.Adapters;
+package com.project.elearning.adapters;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,7 +9,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.project.elearning.Domains.Lesson;
+import com.project.elearning.domains.Lesson;
 import com.project.elearning.R;
 
 import java.util.List;
@@ -26,7 +26,7 @@ public class LessonAdapter extends RecyclerView.Adapter<LessonAdapter.ViewHolder
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View inflate = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.lesson_viewholder, parent, false);
+                .inflate(R.layout.lesson_item_layout, parent, false);
 
         return new ViewHolder(inflate);
     }

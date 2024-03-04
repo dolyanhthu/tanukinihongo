@@ -1,4 +1,4 @@
-package com.project.elearning.Activities;
+package com.project.elearning.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 

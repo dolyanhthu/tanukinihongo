@@ -1,4 +1,4 @@
-package com.project.elearning.Domains;
+package com.project.elearning.domains;
 
 public class Lesson {
     private int lessonNumber;

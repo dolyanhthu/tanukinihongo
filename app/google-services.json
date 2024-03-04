@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "259436582510",
+    "project_id": "tanuki-nihongo",
+    "storage_bucket": "tanuki-nihongo.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:259436582510:android:be365cb200eb99a82f787f",
+        "android_client_info": {
+          "package_name": "com.project.elearning"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDVjqknTO4smuBNUAM0uMopVViv19Cn2oI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

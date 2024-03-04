@@ -1,4 +1,4 @@
-package com.project.elearning.Activities;
+package com.project.elearning.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager2.widget.ViewPager2;
@@ -6,13 +6,12 @@ import androidx.viewpager2.widget.ViewPager2;
 import android.os.Bundle;
 
 import com.ismaeldivita.chipnavigation.ChipNavigationBar;
-import com.project.elearning.Adapters.FragmentAdapter;
-import com.project.elearning.Fragments.AlphabetFragment;
-import com.project.elearning.Fragments.HiraganaFragment;
-import com.project.elearning.Fragments.KanjiFragment;
-import com.project.elearning.Fragments.LessonFragment;
-import com.project.elearning.Fragments.ProfileFragment;
-import com.project.elearning.Fragments.VocabularyFragment;
+import com.project.elearning.adapters.FragmentAdapter;
+import com.project.elearning.fragments.AlphabetFragment;
+import com.project.elearning.fragments.KanjiFragment;
+import com.project.elearning.fragments.LessonFragment;
+import com.project.elearning.fragments.ProfileFragment;
+import com.project.elearning.fragments.VocabularyFragment;
 import com.project.elearning.R;
 
 public class MainActivity extends AppCompatActivity {

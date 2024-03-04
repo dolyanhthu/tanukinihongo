@@ -1,4 +1,4 @@
-package com.project.elearning.Fragments;
+package com.project.elearning.fragments;
 
 import android.os.Bundle;
 
@@ -10,9 +10,9 @@ import android.view.ViewGroup;
 
 import com.project.elearning.R;
 
-public class KanjiFragment extends Fragment {
+public class ProfileFragment extends Fragment {
 
-    public KanjiFragment() {
+    public ProfileFragment() {
         // Required empty public constructor
     }
 
@@ -20,6 +20,6 @@ public class KanjiFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_kanji, container, false);
+        return inflater.inflate(R.layout.fragment_profile, container, false);
     }
 }
