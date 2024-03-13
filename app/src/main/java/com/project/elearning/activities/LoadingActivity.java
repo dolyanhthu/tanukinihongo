@@ -19,6 +19,7 @@ public class LoadingActivity extends AppCompatActivity {
         handler.postDelayed((Runnable) () -> {
             Intent intent = new Intent(LoadingActivity.this, MainActivity.class);
             startActivity(intent);
-        }, 3000);
+            finish();
+        }, 2500);
     }
 }

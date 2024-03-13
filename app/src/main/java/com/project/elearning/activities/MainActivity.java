@@ -1,11 +1,24 @@
 package com.project.elearning.activities;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager2.widget.ViewPager2;
 
+import android.app.Dialog;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.graphics.drawable.ColorDrawable;
+import android.net.ConnectivityManager;
+import android.net.Network;
 import android.os.Bundle;
+import android.view.ViewGroup;
+import android.view.Window;
+import android.widget.ImageView;
 
 import com.ismaeldivita.chipnavigation.ChipNavigationBar;
+import com.project.elearning.NetworkChangeReceiver;
 import com.project.elearning.adapters.FragmentAdapter;
 import com.project.elearning.fragments.AlphabetFragment;
 import com.project.elearning.fragments.KanjiFragment;
@@ -14,17 +27,28 @@ import com.project.elearning.fragments.ProfileFragment;
 import com.project.elearning.fragments.VocabularyFragment;
 import com.project.elearning.R;
 
-public class MainActivity extends AppCompatActivity {
+import pl.droidsonroids.gif.GifImageView;
+
+public class MainActivity extends AppCompatActivity
+        implements NetworkChangeReceiver.NetworkChangeListener{
 
     private ViewPager2 viewPager2;
     private ChipNavigationBar chipNavigationBar;
-    FragmentAdapter adapter;
+    private FragmentAdapter adapter;
+
+    Dialog dialog;
+    NetworkChangeReceiver networkChangeReceiver = new NetworkChangeReceiver(this);
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        initView();
+
+    }
+    private void initView(){
         viewPager2 = findViewById(R.id.viewPager2);
         chipNavigationBar = findViewById(R.id.chipNavBar);
 
@@ -79,4 +103,47 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
+    private void ShowDialog() {
+        dialog = new Dialog(this);
+        dialog.setContentView(R.layout.activity_no_internet);
+        dialog.setCancelable(false);
+
+        dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
+
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(R.color.transparent));
+        dialog.show();
+
+    }
+
+    @Override
+    public void onNetworkChanged(boolean isConnected) {
+        if (isConnected) {
+
+            if (dialog != null && dialog.isShowing()) {
+                dialog.dismiss();
+                dialog = null;
+            }
+
+        } else {
+
+            if (dialog == null || !dialog.isShowing()) {
+                ShowDialog();
+            }
+
+        }
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        registerReceiver(networkChangeReceiver, new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION));
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        unregisterReceiver(networkChangeReceiver);
+    }
+
 }

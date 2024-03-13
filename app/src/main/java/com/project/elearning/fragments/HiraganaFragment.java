@@ -28,7 +28,7 @@ public class HiraganaFragment extends Fragment {
 
     private AlphabetAdapter adapter;
     private RecyclerView recyclerView;
-    private List<String> list;
+    private List<Alphabet> list;
     private DatabaseReference database = FirebaseDatabase.getInstance().getReference("Alphabet/Hiragana");
 
     public HiraganaFragment() {
@@ -86,7 +86,7 @@ public class HiraganaFragment extends Fragment {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()){
-                    String alphabet = dataSnapshot.getValue(String.class);
+                    Alphabet alphabet = dataSnapshot.getValue(Alphabet.class);
                     list.add(alphabet);
                 }
                 adapter.notifyDataSetChanged();

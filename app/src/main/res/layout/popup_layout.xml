@@ -16,6 +16,12 @@
         app:layout_constraintTop_toTopOf="parent"
         android:orientation="vertical"
         android:padding="8dp">
+        <ImageView
+            android:id="@+id/closeBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/baseline_close_24"
+            android:layout_gravity="right"/>
 
         <pl.droidsonroids.gif.GifImageView
             android:id="@+id/gifImageView"
