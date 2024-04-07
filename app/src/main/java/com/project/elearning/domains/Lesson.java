@@ -2,41 +2,53 @@ package com.project.elearning.domains;
 
 public class Lesson {
     private int lessonNumber;
-    private String lessonName;
-    private String lessonTitle;
+    private String engTitle;
+    private String japTitle;
     private boolean isOpen;
     private static int totalLesson = 0;
 
-    public Lesson(String lessonName, String lessonTitle, boolean isOpen) {
-        this.lessonNumber = totalLesson + 1;
-        this.lessonName = lessonName;
-        this.lessonTitle = lessonTitle;
-        this.isOpen = isOpen;
+    public Lesson() {
         totalLesson++;
+        this.lessonNumber = totalLesson;
     }
 
-    public int getLessonNumber() {
-        return lessonNumber;
+    public Lesson(int lessonNumber, String engTitle, String japTitle, boolean isOpen) {
+        this.lessonNumber = lessonNumber;
+        this.engTitle = engTitle;
+        this.japTitle = japTitle;
+        this.isOpen = isOpen;
+    }
+
+    public Lesson(String engTitle, String japTitle) {
+        this.engTitle = engTitle;
+        this.japTitle = japTitle;
+        this.isOpen = false;
+        totalLesson++;
+        this.lessonNumber = totalLesson;
     }
 
     public void setLessonNumber(int lessonNumber) {
         this.lessonNumber = lessonNumber;
     }
 
-    public String getLessonName() {
-        return lessonName;
+    public int getLessonNumber() {
+        return lessonNumber;
     }
 
-    public void setLessonName(String lessonName) {
-        this.lessonName = lessonName;
+    public String getEngTitle() {
+        return engTitle;
     }
 
-    public String getLessonTitle() {
-        return lessonTitle;
+    public void setEngTitle(String engTitle) {
+        this.engTitle = engTitle;
     }
 
-    public void setLessonTitle(String lessonTitle) {
-        this.lessonTitle = lessonTitle;
+    public String getJapTitle() {
+        return japTitle;
+    }
+
+    public void setJapTitle(String japTitle) {
+        this.japTitle = japTitle;
     }
 
     public boolean isOpen() {

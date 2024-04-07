@@ -36,8 +36,8 @@ public class LessonAdapter extends RecyclerView.Adapter<LessonAdapter.ViewHolder
         Lesson lesson = lessonList.get(position);
 
         holder.lessonNumber.setText(lesson.getLessonNumber() + "");
-        holder.lessonName.setText(lesson.getLessonName());
-        holder.lessonTitle.setText(lesson.getLessonTitle());
+        holder.lessonName.setText(lesson.getEngTitle());
+        holder.lessonTitle.setText(lesson.getJapTitle());
     }
 
     @Override
@@ -46,7 +46,7 @@ public class LessonAdapter extends RecyclerView.Adapter<LessonAdapter.ViewHolder
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
-        
+
         TextView lessonNumber, lessonName, lessonTitle;
         ImageView lockBtn;
 
