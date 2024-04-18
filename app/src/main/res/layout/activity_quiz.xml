@@ -8,19 +8,27 @@
     android:orientation="vertical"
     tools:context=".activities.QuizActivity">
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
 
         <TextView
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Question 7/20"
+            android:layout_weight="1"
+            android:layout_gravity="center_vertical"
+            android:fontFamily="@font/redhat_display_bold"
             android:textSize="18sp"
-            android:textStyle="bold"
-            android:layout_centerVertical="true"
             android:id="@+id/question_indicator_textview"/>
-    </RelativeLayout>
+
+        <ImageView
+            android:id="@+id/btnClose"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:src="@drawable/baseline_close_24" />
+    </LinearLayout>
 
     <com.google.android.material.progressindicator.LinearProgressIndicator
         android:layout_width="match_parent"
@@ -43,8 +51,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="120dp"
                 android:text="What is Android OS?"
-                android:textSize="20sp"
-                android:textStyle="bold"
+                android:textSize="24sp"
+                android:fontFamily="@font/redhat_display_bold"
                 android:padding="8dp"
                 android:background="@drawable/rounded_corner"
                 android:backgroundTint="@color/blue"
@@ -58,6 +66,8 @@
                 android:layout_marginVertical="4dp"
                 android:backgroundTint="@color/gray"
                 android:text="Ans A"
+                android:textStyle="bold"
+                android:fontFamily="@font/redhat_display"
                 android:gravity="start"
                 android:textColor="@color/black"
                 android:paddingVertical="12dp"
@@ -70,6 +80,8 @@
                 android:layout_marginVertical="4dp"
                 android:backgroundTint="@color/gray"
                 android:text="Ans B"
+                android:textStyle="bold"
+                android:fontFamily="@font/redhat_display"
                 android:gravity="start"
                 android:textColor="@color/black"
                 android:paddingVertical="12dp"
@@ -82,6 +94,8 @@
                 android:layout_marginVertical="4dp"
                 android:backgroundTint="@color/gray"
                 android:text="Ans C"
+                android:textStyle="bold"
+                android:fontFamily="@font/redhat_display"
                 android:gravity="start"
                 android:textColor="@color/black"
                 android:paddingVertical="12dp"
@@ -94,6 +108,8 @@
                 android:layout_marginVertical="4dp"
                 android:backgroundTint="@color/gray"
                 android:text="Ans D"
+                android:textStyle="bold"
+                android:fontFamily="@font/redhat_display"
                 android:gravity="start"
                 android:textColor="@color/black"
                 android:paddingVertical="12dp"
@@ -106,6 +122,7 @@
                 android:layout_marginVertical="4dp"
                 android:backgroundTint="@color/orange"
                 android:text="Next"
+                android:fontFamily="@font/redhat_display_bold"
                 android:layout_gravity="end"
                 android:textColor="@color/white"
                 android:paddingHorizontal="40dp"

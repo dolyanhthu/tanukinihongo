@@ -1,61 +1,50 @@
 package com.project.elearning.domains;
 
 public class Lesson {
-    private int lessonNumber;
-    private String engTitle;
-    private String japTitle;
-    private boolean isOpen;
-    private static int totalLesson = 0;
+    private String number;
+    private String grammar;
+    private String meaning;
+    private String example;
+
+    public Lesson(String number, String grammar, String meaning, String example) {
+        this.number = number;
+        this.grammar = grammar;
+        this.meaning = meaning;
+        this.example = example;
+    }
 
     public Lesson() {
-        totalLesson++;
-        this.lessonNumber = totalLesson;
     }
 
-    public Lesson(int lessonNumber, String engTitle, String japTitle, boolean isOpen) {
-        this.lessonNumber = lessonNumber;
-        this.engTitle = engTitle;
-        this.japTitle = japTitle;
-        this.isOpen = isOpen;
+    public String getNumber() {
+        return number;
     }
 
-    public Lesson(String engTitle, String japTitle) {
-        this.engTitle = engTitle;
-        this.japTitle = japTitle;
-        this.isOpen = false;
-        totalLesson++;
-        this.lessonNumber = totalLesson;
+    public void setNumber(String number) {
+        this.number = number;
     }
 
-    public void setLessonNumber(int lessonNumber) {
-        this.lessonNumber = lessonNumber;
+    public String getGrammar() {
+        return grammar;
     }
 
-    public int getLessonNumber() {
-        return lessonNumber;
+    public void setGrammar(String grammar) {
+        this.grammar = grammar;
     }
 
-    public String getEngTitle() {
-        return engTitle;
+    public String getMeaning() {
+        return meaning;
     }
 
-    public void setEngTitle(String engTitle) {
-        this.engTitle = engTitle;
+    public void setMeaning(String meaning) {
+        this.meaning = meaning;
     }
 
-    public String getJapTitle() {
-        return japTitle;
+    public String getExample() {
+        return example;
     }
 
-    public void setJapTitle(String japTitle) {
-        this.japTitle = japTitle;
-    }
-
-    public boolean isOpen() {
-        return isOpen;
-    }
-
-    public void setOpen(boolean open) {
-        isOpen = open;
+    public void setExample(String example) {
+        this.example = example;
     }
 }

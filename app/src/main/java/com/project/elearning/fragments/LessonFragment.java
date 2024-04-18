@@ -46,15 +46,15 @@ public class LessonFragment extends Fragment {
     }
 
     private void setVariables() {
-//        Lesson lesson1 = new Lesson("Nice to meet you", "はじめまして", false);
-//        Lesson lesson2 = new Lesson("It's just a feeling", "ほんの気持ちです", false);
-//        Lesson lesson3 = new Lesson("Please give me this", "これをください", false);
-//        Lesson lesson5 = new Lesson("Are you going to Koshien?", "甲子園へ行きますか", false);
-//        Lesson lesson6 = new Lesson("Would you like to go with me?", "いっしょにいきませんか", false);
-//        Lesson lesson7 = new Lesson("Sorry", "ごめんください", false);
-//        Lesson lesson8 = new Lesson("Excuse me soon", "そろそろ失礼します", false);
-//        Lesson lesson9 = new Lesson("Sorry", "残念です", false);
-//        Lesson lesson10 = new Lesson( "Do you have any chili sauce?", "チリソースがありませんか", false);
+//        Lesson lesson1 = new Lesson(1,"Nice to meet you", "はじめまして", false);
+//        Lesson lesson2 = new Lesson(2,"It's just a feeling", "ほんの気持ちです", false);
+//        Lesson lesson3 = new Lesson(3,"Please give me this", "これをください", false);
+//        Lesson lesson5 = new Lesson(4,"Are you going to Koshien?", "甲子園へ行きますか", false);
+//        Lesson lesson6 = new Lesson(5,"Would you like to go with me?", "いっしょにいきませんか", false);
+//        Lesson lesson7 = new Lesson(6,"Sorry", "ごめんください", false);
+//        Lesson lesson8 = new Lesson(7,"Excuse me soon", "そろそろ失礼します", false);
+//        Lesson lesson9 = new Lesson(8,"Sorry", "残念です", false);
+//        Lesson lesson10 = new Lesson(9,"Do you have any chili sauce?", "チリソースがありませんか", false);
 //
 //        lessonList.add(lesson1);
 //        lessonList.add(lesson2);
@@ -76,8 +76,9 @@ public class LessonFragment extends Fragment {
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()){
                     Lesson lesson = dataSnapshot.getValue(Lesson.class);
                     lessonList.add(lesson);
+                    adapter.notifyDataSetChanged();
                 }
-                adapter.notifyDataSetChanged();
+
             }
             @Override
             public void onCancelled(@NonNull DatabaseError error) {

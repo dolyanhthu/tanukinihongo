@@ -45,13 +45,10 @@ public class VocabularyAdapter extends RecyclerView.Adapter<VocabularyAdapter.Vi
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.layoutBinding.setVocabulary(vocabularyList.get(position));
         Glide.with(context).load(vocabularyList.get(position).getImageUrl()).into(holder.layoutBinding.topicImage);
-        holder.setItemClickListener(new ItemClickListener() {
-            @Override
-            public void onClick(View view, int position, boolean isLongClick) {
-                Intent intent = new Intent(context, LeaningWordsActivity.class);
-                intent.putExtra("topic",vocabularyList.get(position).getTitle());
-                context.startActivity(intent);
-            }
+        holder.setItemClickListener((view, position1) -> {
+            Intent intent = new Intent(context, LeaningWordsActivity.class);
+            intent.putExtra("topic",vocabularyList.get(position1).getTitle());
+            context.startActivity(intent);
         });
     }
 
@@ -60,7 +57,7 @@ public class VocabularyAdapter extends RecyclerView.Adapter<VocabularyAdapter.Vi
         return vocabularyList.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener{
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
         VocabularyItemLayoutBinding layoutBinding;
         private ItemClickListener itemClickListener;
@@ -69,7 +66,6 @@ public class VocabularyAdapter extends RecyclerView.Adapter<VocabularyAdapter.Vi
             super(layoutBinding.getRoot());
             this.layoutBinding = layoutBinding;
             layoutBinding.getRoot().setOnClickListener(this);
-            layoutBinding.getRoot().setOnLongClickListener(this);
         }
 
         public void setItemClickListener(ItemClickListener itemClickListener) {
@@ -78,12 +74,8 @@ public class VocabularyAdapter extends RecyclerView.Adapter<VocabularyAdapter.Vi
 
         @Override
         public void onClick(View v) {
-            itemClickListener.onClick(v, getAdapterPosition(), false);
+            itemClickListener.onClick(v, getAdapterPosition());
         }
 
-        @Override
-        public boolean onLongClick(View v) {
-            return false;
-        }
     }
 }

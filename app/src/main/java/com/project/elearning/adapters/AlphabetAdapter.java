@@ -54,7 +54,7 @@ public class AlphabetAdapter extends RecyclerView.Adapter<AlphabetAdapter.ViewHo
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.binding.setAlphabet(list.get(position));
 
-        holder.setItemClickListener((view, position1, isLongClick) -> {
+        holder.setItemClickListener((view, position1) -> {
             if (!list.get(position1).getAlphabet().equals("")) {
                 LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
                 View popupView = inflater.inflate(R.layout.popup_layout, null);
@@ -107,7 +107,7 @@ public class AlphabetAdapter extends RecyclerView.Adapter<AlphabetAdapter.ViewHo
 
         @Override
         public void onClick(View v) {
-            itemClickListener.onClick(v, getAdapterPosition(), false);
+            itemClickListener.onClick(v, getAdapterPosition());
         }
     }
 }

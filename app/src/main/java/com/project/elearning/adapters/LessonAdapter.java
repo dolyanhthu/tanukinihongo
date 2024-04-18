@@ -1,14 +1,18 @@
 package com.project.elearning.adapters;
 
+import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.project.elearning.ItemClickListener;
+import com.project.elearning.activities.LessonActivity;
+import com.project.elearning.databinding.LessonItemLayoutBinding;
 import com.project.elearning.domains.Lesson;
 import com.project.elearning.R;
 
@@ -17,6 +21,7 @@ import java.util.List;
 public class LessonAdapter extends RecyclerView.Adapter<LessonAdapter.ViewHolder> {
 
     List<Lesson> lessonList;
+    Context context;
 
     public LessonAdapter(List<Lesson> lessonList) {
         this.lessonList = lessonList;
@@ -25,19 +30,26 @@ public class LessonAdapter extends RecyclerView.Adapter<LessonAdapter.ViewHolder
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View inflate = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.lesson_item_layout, parent, false);
-
-        return new ViewHolder(inflate);
+        LessonItemLayoutBinding layoutBinding = DataBindingUtil.inflate(
+                LayoutInflater.from(parent.getContext()),
+                R.layout.lesson_item_layout,
+                parent,
+                false
+        );
+        this.context = parent.getContext();
+        return new ViewHolder(layoutBinding);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Lesson lesson = lessonList.get(position);
 
-        holder.lessonNumber.setText(lesson.getLessonNumber() + "");
-        holder.lessonName.setText(lesson.getEngTitle());
-        holder.lessonTitle.setText(lesson.getJapTitle());
+        holder.layoutBinding.setLesson(lesson);
+        holder.setItemClickListener((view, position1) -> {
+            LessonActivity.lesson = lesson;
+            context.startActivity(new Intent(context, LessonActivity.class));
+        });
+
     }
 
     @Override
@@ -45,17 +57,23 @@ public class LessonAdapter extends RecyclerView.Adapter<LessonAdapter.ViewHolder
         return lessonList.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder{
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+        LessonItemLayoutBinding layoutBinding;
+        ItemClickListener itemClickListener;
 
-        TextView lessonNumber, lessonName, lessonTitle;
-        ImageView lockBtn;
+        public ViewHolder(@NonNull LessonItemLayoutBinding layoutBinding) {
+            super(layoutBinding.getRoot());
+            this.layoutBinding = layoutBinding;
+            layoutBinding.getRoot().setOnClickListener(this);
+        }
 
-        public ViewHolder(@NonNull View itemView) {
-            super(itemView);
-            lessonNumber = itemView.findViewById(R.id.lessonNumber);
-            lessonName = itemView.findViewById(R.id.lessonName);
-            lessonTitle = itemView.findViewById(R.id.lessonTitle);
-            lockBtn = itemView.findViewById(R.id.lockBtn);
+        public void setItemClickListener(ItemClickListener itemClickListener) {
+            this.itemClickListener = itemClickListener;
+        }
+
+        @Override
+        public void onClick(View v) {
+            itemClickListener.onClick(v, getAdapterPosition());
         }
     }
 }

@@ -25,6 +25,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.project.elearning.CardFlipActivity;
 import com.project.elearning.NetworkChangeReceiver;
 import com.project.elearning.R;
 import com.project.elearning.adapters.WordAdapter;
@@ -43,6 +44,7 @@ public class LeaningWordsActivity extends AppCompatActivity implements NetworkCh
     private ActivityLeaningWordsBinding wordsBinding;
     private ImageView imageView;
     private Button testBtn;
+    private Button learnBtn;
     private RecyclerView recyclerView;
     private TextView textView;
     private DatabaseReference database;
@@ -76,6 +78,8 @@ public class LeaningWordsActivity extends AppCompatActivity implements NetworkCh
                 for (DataSnapshot dataSnapshot: snapshot.getChildren()) {
                     Word word = dataSnapshot.getValue(Word.class);
                     wordList.add(word);
+                    CardFlipActivity.frontList.add(word.getWord());
+                    CardFlipActivity.backList.add(word.getMeaning());
                 }
                 adapter.notifyDataSetChanged();
             }
@@ -101,7 +105,6 @@ public class LeaningWordsActivity extends AppCompatActivity implements NetworkCh
                         questionList.add(question);
                     }
                 }
-
                 @Override
                 public void onCancelled(@NonNull DatabaseError error) {
 
@@ -110,6 +113,10 @@ public class LeaningWordsActivity extends AppCompatActivity implements NetworkCh
             QuizActivity.questionList = questionList;
             startActivity(new Intent(this, QuizActivity.class));
         });
+
+        learnBtn.setOnClickListener(v -> {
+            startActivity(new Intent(this, CardFlipActivity.class));
+        });
     }
 
     private void initView() {
@@ -117,6 +124,7 @@ public class LeaningWordsActivity extends AppCompatActivity implements NetworkCh
         imageView = wordsBinding.imageView;
         recyclerView = wordsBinding.wordRecyclerView;
         testBtn = wordsBinding.testBtn;
+        learnBtn = wordsBinding.learnBtn;
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
     }

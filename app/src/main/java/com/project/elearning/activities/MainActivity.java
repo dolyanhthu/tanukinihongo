@@ -64,8 +64,6 @@ public class MainActivity extends AppCompatActivity
         adapter.addFragment(new AlphabetFragment());
         adapter.addFragment(new VocabularyFragment());
         adapter.addFragment(new LessonFragment());
-        adapter.addFragment(new KanjiFragment());
-        adapter.addFragment(new ProfileFragment());
 
 
         chipNavigationBar.setItemEnabled(R.id.chipNavBar, true);
@@ -81,10 +79,6 @@ public class MainActivity extends AppCompatActivity
                 fragment = new VocabularyFragment();
             } else if (i == R.id.itLesson) {
                 fragment = new LessonFragment();
-            } else if (i == R.id.itKanji) {
-                fragment = new KanjiFragment();
-            } else if (i == R.id.itPerson) {
-                fragment = new ProfileFragment();
             }
 
             if (fragment != null) {

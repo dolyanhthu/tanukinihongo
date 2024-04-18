@@ -34,6 +34,9 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
         quizBinding.btn2.setOnClickListener(this);
         quizBinding.btn3.setOnClickListener(this);
         quizBinding.nextBtn.setOnClickListener(this);
+        quizBinding.btnClose.setOnClickListener(v -> {
+            onBackPressed();
+        });
 
         loadQuestions();
     }
